@@ -1,4 +1,5 @@
 import "./Register.scss"
+import { Link } from "react-router-dom"
 
 const Register = () => {
   return (
@@ -9,7 +10,9 @@ const Register = () => {
                 <p>React Social Media App Design | Dark/Light Mode & Responsive & HTML CSS</p>
                 {/*span : inline element*/}
                 <span>Do you have an account?</span>
-                <button>Login</button>
+                <Link to="/login">
+                    <button>Login</button>
+                </Link>
             </div>
             <div className="right">
                 <h1>Register</h1>

@@ -1,4 +1,5 @@
 import "./Login.scss"
+import { Link } from "react-router-dom"
 
 const Login = () => {
   return (
@@ -9,7 +10,9 @@ const Login = () => {
                 <p>React Social Media App Design | Dark/Light Mode & Responsive & HTML CSS</p>
                 {/*span : inline element*/}
                 <span>Don't you have an account?</span>
-                <button>Register</button>
+                <Link to="/register">
+                    <button>Register</button>
+                </Link>
             </div>
             <div className="right">
                 <h1>Login</h1>
