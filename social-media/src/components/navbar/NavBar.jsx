@@ -8,8 +8,15 @@ import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from "react-router-dom";
+import { DarkModeContext } from "../../context/darkModeContext";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 
 export const NavBar = () => {
+
+    const {toggle, darkMode} = useContext(DarkModeContext);
+    const {currentUser} = useContext(AuthContext);
+
   return (
     <div className = 'navbar'>
         <div className="left">
@@ -18,7 +25,7 @@ export const NavBar = () => {
             </Link>
 
             <HomeIcon />
-            <DarkModeIcon />
+            {darkMode ? <DarkModeIcon onClick={toggle}/> : <WbSunnyIcon onClick={toggle}/>}
             <GridViewIcon />
 
             <div className="search">
@@ -32,8 +39,8 @@ export const NavBar = () => {
             <EmailIcon />
             <NotificationsActiveIcon />
             <div className="user">
-                <img src="https://images.pexels.com/photos/7605189/pexels-photo-7605189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
-                <span>Chen Ye</span>
+                <img src={currentUser.profilePic} alt="" />
+                <span>{currentUser.name}</span>
             </div>
         </div>
     </div>
