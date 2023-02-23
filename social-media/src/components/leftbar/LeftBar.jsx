@@ -1,14 +1,19 @@
 import "./leftBar.scss"
 import icon from "../../assets/image.png"
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 
 const LeftBar = () => {
+
+  const {currentUser} = useContext(AuthContext);
+
   return (
     <div className='leftBar'>
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img src="https://images.pexels.com/photos/7605189/pexels-photo-7605189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
-            <span>Chen Ye</span>
+            <img src={currentUser.profilePic} alt="" />
+            <span>{currentUser.name}</span>
           </div>
           <div className="item">
             <img src={icon} alt="" />
